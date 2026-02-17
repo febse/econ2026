@@ -1,0 +1,489 @@
+# Descriptive Statistics
+
+## Data Frames (Tibbles)
+
+In most of our work we will use data tables containing variables (columns) that describe characteristics of observations (rows). Most of the time we will use `tibble` objects to hold the data. `tibble` objects are a modern rewrite of the `data.frame` (an older object type for storing data).
+
+To use it we need to load the `dplyr` package, a part of the `tidyverse` collection of packages.
+
+```{r}
+if (!requireNamespace("tidyverse", quietly = TRUE)) {
+  install.packages("tidyverse")
+}
+
+if (!requireNamespace("skimr", quietly = TRUE)) {
+  install.packages("skimr")
+}
+
+
+library(tidyverse)
+library(readxl)
+```
+
+In a limited number of cases we need to construct tables by hand. You can find out more about `tibble` [here](https://tibble.tidyverse.org/articles/tibble.html).
+
+```{r}
+# Create a tibble (a type of data frame)
+dt <- tibble(
+  ## Shorthand syntax for creating a sequence of integers from one to five
+  id = 1:5,
+  name = c("Alice", "Bob", "Charlie", "David", "Eve"),
+  billableHours = c(2, 2.5, 3, 8, 12)
+)
+
+# Print the data
+dt
+```
+
+Most of our data will come from external sources such as text files in a CSV format. For the purpose of this course you don't need to worry about importing such files, you will always have a starter code chunk that handles the import.
+
+The dataset `bikes` contains hourly usage data of shared bikes in London between 2015 and 2017.
+
+Columns (variables) in the dataset:
+
+-   `timestamp` - timestamp field for grouping the data
+-   `cnt` - the count of a new bike shares
+-   `t1` - real temperature in degrees Fahrenheit
+-   `t2` - temperature in degrees Fahrenheit (feels like)
+-   `hum` - humidity in percentage
+-   `wind_speed` - wind speed in miles per hour
+-   `weather_code` - category of the weather
+-   `is_holiday` - boolean field - 1 holiday / 0 non holiday
+-   `is_weekend` - boolean field - 1 if the day is weekend
+-   `season` - category field meteorological seasons: 0-spring ; 1-summer; 2-fall; 3-winter.
+
+We will use this data set to demonstrate some common operations and basic data summaries.
+
+```{r}
+# Download and import the raw data from a CSV file
+bikes <- read_csv("https://github.com/febse/data/raw/refs/heads/main/econ/bike_sharing_london_merged.xls") %>%
+  mutate(
+    t1 = (t1 * 1.8) + 32,
+    t2 = (t2 * 1.8) + 32,
+    wind_speed = wind_speed * 1.60934
+  )
+
+# Print the first few lines
+bikes %>% head()
+```
+
+## Crating New Variables (Columns)
+
+Before we start summarizing the data, we will convert some of the variables to more familiar units: temperature from Fahrenheit to Celsius, wind speed from miles per hour h to m/h.
+
+$$
+\text{Degree Celsius} = \frac{\text{Degree Fahrenheit} - 32}{1.8}
+$$
+
+```{r}
+bikes %>%
+  mutate(
+    temp_c = (t1 - 32) / 1.8
+  )
+```
+
+Note that the object holding the original data is unaffected by mutate and select. The reason for this is that functions in R generally do not change their arguments. If you want to add the two new columns to the original data set `bikes`, you need to overwrite it with an assignment.
+
+```{r}
+bikes <- bikes %>%
+  mutate(
+    temp_c = (t1 - 32) / 1.8
+  )
+```
+
+::: {#exr-mutate}
+## Mutate
+
+Create a new column in the `bikes` dataset called `temp_felt_c` that contains the feels like temperature in Celsius. Also create a new column called `wind_speed_kmh` that contains the wind speed in kilometers per hour. **Hint**: Use the `mutate` function and assign the result back to the `bikes` object.
+
+```{r}
+# Write your code here
+
+```
+:::
+
+## Basic Data Summaries
+
+The first step in any data analysis is to gain an initial understanding of the context of the data and the distributions of the variables of interest. In this course our main focus will be on two features of the variables: their location and their variability (how different are the observations between each other). In addition, an initial screening of is helpful to identify potential problems in the data:
+
+-   Extremely unusual values (outliers)
+-   Missing values
+-   Logical inconsistencies in the data
+
+It is especially important to detect these problems in the early stages of the analysis.
+
+### Location
+
+The most important measure of location for us will be the empirical mean of a variable (arithmetic average). Let $i$ index the observation in our data set from the first ($i = 1$) to the last $i = n$. In our case $n = 1816$: the number of all interviewed customers. We can represent the values of some (numeric) characteristic (e.g., the persons' weight) as a vector of values $x = (x_1, \ldots, x_n)$. In this notation $x_1$ is the weight of the first customer in the data set ($x_1 = 210$ pounds). The arithmetic average is defined as the sum of all values divided by the number of observations:
+
+$$
+\bar{x} = \frac{1}{n}(x_1 + x_2 + \ldots + x_n) = \frac{1}{n}\sum_{i = 1}^{n} x_i
+$$
+
+
+Let us now compute the arithmetic average of `cnt`. One way to access the columns of the data set `bikes` is to write the name of the data set and then after a \$ sign the name of the column.
+
+```{r}
+mean(bikes$cnt)
+```
+
+Another measure of location is the (empirical) median. You can compute it using the `median` function.
+
+```{r}
+median(bikes$cnt)
+```
+
+::: {#exr-location}
+## Location (Mean and Median)
+
+Compute the average and the median temperature. How do you interpret these values?
+
+```{r}
+# Write your code here
+
+```
+:::
+
+Other measures of locations are the mode (the most frequent value) and the quantiles. In general, the mode *does not make sense* only makes sense for categorical variables.
+
+```{r}
+min(bikes$cnt)
+max(bikes$cnt)
+
+# It is very common to divide the data into four parts (quartiles) to get a better understanding of the distribution of the data.
+quantile(bikes$cnt, probs = c(0, 0.25, 0.5, 0.75, 1))
+```
+
+The first quartile of `cnt` (25-th percentile and 0.25 quantile are different names for the same thing) is the number of bike rentals per hour such that about 25 percent (one quarter) of the hours had fewer rentals.
+
+```{r}
+quantile(bikes$cnt, 0.25)
+
+```
+
+```{r}
+mean(bikes$cnt < 257)
+```
+
+The second quartile is the same as the median (two quarters).
+
+```{r}
+quantile(bikes$cnt, 0.5)
+median(bikes$cnt)
+mean(bikes$cnt < median(bikes$cnt))
+```
+
+The third quartile is the number of hourly rentals such that about 75 percent of the hours had fewer rentals (and about 25 percent had more rentals).
+
+```{r}
+quantile(bikes$cnt, 0.75)
+mean(bikes$cnt < quantile(bikes$cnt, 0.75))
+mean(bikes$cnt > quantile(bikes$cnt, 0.75))
+```
+
+::: {#exr-location-quantiles}
+## Minimum, Maximum, and Quartiles
+
+Compute the minimum, maximum, and the quartiles of the `temp_c` variable. How do you interpret these values? Compute the proportion of hours with a temperature:
+
+-   Below the first quartile
+-   Above the median
+-   Above the third quartile.
+-   Between the first and the third quartile.
+-   Between the median and the third quartile.
+-   Between the median and the first quartile.
+
+```{r}
+# Write your code here
+
+```
+:::
+
+### Variability (Spread)
+
+The next important feature of the data is its variability. It answers the following question: how different are the customers between each other with respect to body height (for example). There are numerous ways to measure variability. To illustrate this, let us consider look at the boxplot of the `cnt` variable by `season`.
+
+A boxplot is a graphical representation of the distribution of the data that uses the quartiles to show the location and the spread of the data. The boxplot shows the median (the second quartile), the first and the third quartile (the 25-th and the 75-th percentile), and the whiskers that extend to the most extreme data points that are not considered outliers. Outliers are shown as individual points.
+
+```{r}
+bikes %>%
+  ggplot(aes(y = factor(season), x = cnt)) +
+  geom_boxplot()
+```
+
+One intuitive measure would be the range of the data, defined as the difference between the maximum and the minimum value.
+
+```{r}
+max(bikes$cnt)
+min(bikes$cnt)
+max(bikes$cnt) - min(bikes$cnt)
+
+range(bikes$cnt)
+```
+
+Another measure is the inter-quartile range, which is the difference between the third and the first quartile.
+
+```{r}
+quantile(bikes$cnt, 0.75) - quantile(bikes$cnt, 0.25)
+```
+
+As the range, the inter-quartile range is a measure of variability, however, it is much less sensitive to extreme values.
+
+The most important measure of variability and the one that will be central to our analysis is the (empirical) variance.
+
+::: {#def-empirical-variance}
+## Empirical Variance
+
+For a vector of values $x = (x_1, \ldots, x_n)$ it is defined as the average (apart from a small correction in the denominator) squared deviation of the values from their mean.
+
+$$
+S^2_x = \frac{(x_1 - \bar{x})^2 + \ldots + (x_n - \bar{x})^2}{n - 1} = \frac{1}{n - 1} \sum_{i = 1}^{n}(x_i - \bar{x})^2: \quad \text{variance}\\
+S_x = \sqrt{S^2_x} \quad \text{standard deviation}
+$$
+:::
+
+::: {#exm-empirical-variance}
+## Computing the empirical variance
+
+Lets apply the formula from @def-empirical-variance to a very simple example with just three values.
+
+$$
+x_1 = -1, x_2 = 0, x_3 = 4
+$$
+
+First, the empirical mean of these values is
+
+$$
+\bar{x} = \frac{-1 + 0 + 4}{3} = 1
+$$
+
+Now lets substitute these values in the definition of the empirical variance:
+
+$$
+\begin{aligned}
+S^2_{x} & = \frac{(x_1 - \bar{x})^2 + (x_2 - \bar{x})^2 + (x_3 - \bar{x})^2 }{n - 1} \\
+        & = \frac{(-1 - 1)^2 + (0 - 1)^2 + (4 - 1)^2 }{3 - 1} \\
+        & = \frac{(-2)^2 + (- 1)^2 + (3 )^2 }{2} \\
+        & = \frac{4 + 1 + 9 }{2} \\
+        & = \frac{14}{2} \\
+        & = 7
+\end{aligned}
+$$
+
+Using R to compute the same thing:
+
+```{r}
+# Create a vector called x
+x <- c(-1, 0, 4)
+# Compute the average of the values in x and store it in a variable called x_avg (look it up in the global environment)
+
+x_avg <- mean(x)
+
+# Manually compute the variance of x
+((-1 - x_avg)^2 + (0 - x_avg)^2 + (4 - x_avg)^2) / (length(x) - 1)
+```
+
+```{r}
+# More compactly
+sum((x - mean(x))^2) / (length(x) - 1)
+```
+
+There is also a special function called `var` that can compute it from a vector
+
+```{r}
+var(x)
+```
+
+The (empirical) standard deviation is simply the square root of the (empirical) variance.
+
+$$
+S_x = \sqrt{S^2_x} = \sqrt{7} \approx 2.64 
+$$
+
+In R you have two options: take the square root of the result of `var` using the `sqrt` function or use `sd` (standard deviation) to compute the standard deviation directly.
+
+```{r}
+sqrt(var(x))
+sd(x)
+```
+:::
+
+::: callout-note
+## Interpretation of the Standard Deviation
+
+The standard deviation is a measure of the spread of the data. It is the average distance of the observations from the mean.
+
+```{r}
+x1 <- c(-1, 0, 1)
+var(x)
+sd(x)
+```
+
+```{r}
+x2 <- c(-2, 0, 2)
+var(x)
+sd(x)
+```
+
+```{r}
+x3 <- c(-2, -1, 0, 1, 2)
+var(x)
+sd(x)
+```
+:::
+
+Let's compute the empirical standard deviations of `cnt` by `season`. We will use this opporuinity to introduce the `group_by` function from the `dplyr` package. This function allows us to group the data by a variable and then apply a function to each group.
+
+```{r}
+bikes %>%
+  group_by(season) %>%
+  summarize(
+    mean_cnt = mean(cnt),
+    sd_cnt = sd(cnt)
+  )
+```
+
+::: {#exr-empirical-moments}
+## Empirical Moments (Mean and Variance)
+
+1.  Compute the mean and the variance of the `temp_c` variable in the `bikes` dataset. How do you interpret these values?
+
+```{r}
+# Write your code here
+
+```
+
+2.  Use the `summarize` function from the `dplyr` (already loaded) package to compute the mean and the variance of the `temp_c` variable.
+
+```{r}
+# Write your code here
+
+```
+
+3.  Run the same calculations as before, but this time group the dataset by the `ethnicity` variable. This will give you the mean and the variance of the annual earnings for every ethnic group in the data set. Use the `group_by` function.
+
+```{r}
+# Write your code here
+
+```
+:::
+
+### Data Overview
+
+The `skim` function from the `skimr` package provides a quick overview of the data set. It shows the number of observations, the number of variables, the names of the variables, the type of the variables, the number of missing values, the mean, the standard deviation, the minimum and maximum values, and the quartiles for the numeric variables.
+
+```{r}
+## Basic summaries for the whole tibble
+bikes %>% skimr::skim()
+```
+
+### Summarizing a single categorical variable
+
+While the mean, median, and variance are useful for numeric variables, they are not defined for categorical variables. Instead, we can use the `table` function to count the number of observations in each category.
+
+```{r}
+table(bikes$season)
+```
+
+## Visualizations
+
+Histogram
+
+```{r}
+bikes %>%
+  ggplot(aes(x = cnt)) +
+  geom_histogram()
+```
+
+A smooth density plot is an alternative way to visualize the distribution of a variable.
+
+```{r}
+bikes %>%
+  ggplot(aes(x = cnt)) +
+  geom_density()
+```
+
+The boxplot shows the median and the 25-th and 75-th percentiles (the box). The whiskers in the plot stretch to the minimum or the maximum observed value, unless there are extreme observations that are shown as single dots.
+
+The scatterplot will be our primary tool in studying associations between variables. It represents each observation as a point in a coordinate system defined by the variables that we would like to study.
+
+```{r}
+bikes %>%
+  ggplot(aes(x = temp_c, y = cnt)) +
+  geom_point(position = "jitter", alpha = 0.2) +
+  labs(
+    x = "Temperature (C)",
+    y = "Number of rentals"
+  )
+```
+
+```{r}
+summary(lm(cnt ~ temp_c, data = bikes))
+```
+
+::: {#exr-descriptive-statistics}
+## Mall Customers
+
+The `earnings` dataset contains the result from a survey of mall customers. The dataset contains the following variables:
+
+-   `height` - the height of the customer in inches
+-   `weight` - the weight of the customer in pounds
+-   `male` - a binary variable indicating a male (1) customer or a female (0) customer
+-   `earn` - the annual earnings of the customer in dollars
+-   `earnk` - the annual earnings of the customer in thousands of dollars
+-   `ethnicity` - A categorical variable indicating the ethnicity of the customer (White, Black, Hispanic, Other)
+-   `education` - The number of years of education of the customer
+-   `mother_education` - The number of years of education of the customer's mother
+
+```{r}
+earnings <- read_csv("https://github.com/febse/data/raw/refs/heads/main/econ/earnings.csv") %>% 
+  mutate(
+   male = as.factor(male)
+  )
+earnings %>% head()
+```
+
+-   Create a new variable `bmi` (body mass index) in the `earnings` data set. The BMI is defined as the weight in kilograms divided by the square of the height in meters. The height in meters is the height in centimeters divided by 100. To facilitate the computation, convert the height from inches to centimeters and the weight from pounds to kilograms and store these values in new variables `height_cm` and `weight_kg`.
+
+$$
+\text{BMI} = \frac{\text{weight (kg)}}{(\text{height (cm)} / 100)^2}
+$$
+
+-   Compute the quartiles of the `bmi` variable. How do you interpret these values?
+
+```{r}
+# Write your code here
+
+```
+
+-   Visualize the distribution of the `bmi` variable by sex (use the `male`). What can you say about the distributions of the BMI between men and women?
+
+```{r}
+# Write your code here
+
+```
+
+-   The reference ranges for the BMI are as follows:
+
+-   Under 18,5: Underweight
+
+-   18,5 - 24,9: Normal
+
+-   25 - 29,9: Overweight
+
+-   30 oder mehr: Obese
+
+Create two new variables `is_underweight`, `is_normal` in the dataset. *Hint*: Use the `mutate` function and the `<`, `<=`, `>`, `>=` operators. You can join multiple conditions using the `&` (logical and) operator. Don't forget to uncomment the code first (Ctrl+Shift+C). How many customers are underweight and how many have a normal weight? Use the `summarize` function to compute the number of customers in each category.
+
+```{r}
+# Write your code here
+
+```
+
+-   Group the data by `male` and compute the number of customers in each group, as well as the number of underweight and normal weight customers in each group. Additionally, compute the share of underweight and normal weight customers in each group. *Hint*: Use the `group_by` function and the `summarize` function. Don't forget to uncommend the code first (Ctrl+Shift+C). The `n()` function can be used to compute the number of observations in each group.
+
+```{r}
+# Write your code here
+
+```
+:::

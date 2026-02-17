@@ -1,0 +1,16 @@
+name: econ2025
+channels:
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - python=3.12
+  - conda-forge::r-base
+  - conda-forge::r-tidyverse
+  - conda-forge::r-broom
+  - conda-forge::r-patchwork
+  - conda-forge::r-caret
+  - conda-forge::r-plotly
+  - conda-forge::r-renv
+  - conda-forge::r-car
+  - conda-forge::r-skimr
+prefix: /home/amarov/miniconda3/envs/econ2025
