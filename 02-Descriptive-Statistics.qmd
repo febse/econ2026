@@ -76,7 +76,7 @@ $$
 $$
 
 ```{r}
-bikes %>%
+bikes |>
   mutate(
     temp_c = (t1 - 32) / 1.8
   )
@@ -120,7 +120,6 @@ $$
 \bar{x} = \frac{1}{n}(x_1 + x_2 + \ldots + x_n) = \frac{1}{n}\sum_{i = 1}^{n} x_i
 $$
 
-
 Let us now compute the arithmetic average of `cnt`. One way to access the columns of the data set `bikes` is to write the name of the data set and then after a \$ sign the name of the column.
 
 ```{r}
@@ -158,7 +157,6 @@ The first quartile of `cnt` (25-th percentile and 0.25 quantile are different na
 
 ```{r}
 quantile(bikes$cnt, 0.25)
-
 ```
 
 ```{r}

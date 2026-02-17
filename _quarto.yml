@@ -2,6 +2,9 @@ project:
   type: book
   output-dir: _site
 
+execute: 
+  enabled: true
+
 book:
   title: "Introduction to Linear Regression Analysis"
   author: "Boyko Amarov"
@@ -10,19 +13,20 @@ book:
     - index.qmd
     - Homework.qmd
     - 00-Recommended-Literature.qmd
-    - 01-Introduction-to-R.qmd
-    - 02-Descriptive-Statistics.qmd
-    - 03-1-Least-Squares.qmd
-    - 03-2-Least-Squares.qmd
-    - 04-1-Discrete-Distributions.qmd
-    - 04-2-Continuous-Distributions.qmd
-    - 05-One-Way-ANOVA.qmd
-    - 06-Simulation.qmd
-    - 07-Simulation-Tests-Ex.qmd
-    - 08-Multiple-Regression.ipynb
-    - 09-Categorical-Variables.ipynb
-    - 10-Interaction-Effects.ipynb
-    - 11-Confidence-Intervals.ipynb
+    - 01-Descriptive-Statistics-Class.ipynb
+    # - 01-Introduction-to-R.qmd
+    # - 02-Descriptive-Statistics.qmd
+    # - 03-1-Least-Squares.qmd
+    # - 03-2-Least-Squares.qmd
+    # - 04-1-Discrete-Distributions.qmd
+    # - 04-2-Continuous-Distributions.qmd
+    # - 05-One-Way-ANOVA.qmd
+    # - 06-Simulation.qmd
+    # - 07-Simulation-Tests-Ex.qmd
+    # - 08-Multiple-Regression.ipynb
+    # - 09-Categorical-Variables.ipynb
+    # - 10-Interaction-Effects.ipynb
+    # - 11-Confidence-Intervals.ipynb
 
     # - lecture_problems.qmd
     # - 00-Homework-Instructions.qmd  

@@ -8,11 +8,11 @@
 ![](figures/qr_code.png)
 :::
 
-## Schedule
+## Notebooks
 
-1.  Mon 8:30-10:00 in room 308
-2.  Mon 16:15-17:45 in room 302
-3.  Thu 12:15-13:45 in room 308
+- [01-Descriptive-Statistics-Class.ipynb]({{< var colabPrefix >}}01-Descriptive-Statistics-Class.ipynb)
+
+## Schedule
 
 ## Grading
 

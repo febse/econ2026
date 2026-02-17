@@ -32,7 +32,6 @@ A lot of the work in R Studio can be done using keyboard shortcuts. This can spe
 You can find more shortcuts and a concise overview of the elements of R Studio in the [R Studio Cheatsheet](https://posit.co/wp-content/uploads/2022/10/rstudio-ide-1.pdf).
 
 For a complete list of shortcuts, you can go to `Help` -\> `Keyboard Shortcuts Help`.
-
 :::
 
 ## Arithmetic Operations
@@ -292,10 +291,10 @@ Take the data in `x` and **then** (pipe) apply the mean function.
 
 ```{r}
 x <- c(-1, 1, 1)
-x %>% mean()
+x |> mean()
 ```
 
-This makes the code more readable and easier to understand. The pipe operator is `%>%` in R (you may also encounter \|\>). The following will read as:
+This makes the code more readable and easier to understand. The pipe operator is `|>` in R (you may also encounter \|\>). The following will read as:
 
 Take the values in `x`, then (pipe) pass them to the `mean` function, then (pipe) take the result of the `mean` funciton and pass it to the `abs` function (calculates the absolute value), then (pipe) pass the result from `abs` to the `sqrt` function (calculates the square root), then (pipe) round the result to two decimal places (`round`).
 
@@ -306,10 +305,10 @@ You can use the keyboard shortcut `Ctrl + Shift + M` to insert the pipe operator
 :::
 
 ```{r}
-x %>% 
-  mean() %>%  
-  abs() %>%  
-  sqrt() %>% 
+x |> 
+  mean() |>  
+  abs() |>  
+  sqrt() |> 
   round(2)
 ```
 
@@ -341,21 +340,21 @@ round(log(sqrt(2)), digits=3)
 round(log(sqrt(3)), digits=3)
 round(log(sqrt(c(2, 3))), digits=3)
 
-2 %>% 
-  sqrt() %>% 
-  log() %>% 
+2 |> 
+  sqrt() |> 
+  log() |> 
   round(3)
 
-3 %>%
-  sqrt() %>%
-  log() %>%
+3 |>
+  sqrt() |>
+  log() |>
   round(3)
 
 # Or the two in one line
 
-c(2, 3) %>% 
-  sqrt() %>% 
-  log() %>% 
+c(2, 3) |> 
+  sqrt() |> 
+  log() |> 
   round(3)
 ```
 
