@@ -11,7 +11,7 @@ book:
   date: last-modified
   chapters:
     - index.qmd
-    - Homework.qmd
+    # - Homework.qmd
     - 00-Recommended-Literature.qmd
     # - 02-Distributions-Class.ipynb
     # - 01-Descriptive-Statistics-Class.ipynb
