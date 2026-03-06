@@ -14,6 +14,12 @@
 
 <!-- -->
 
--   [Discrete distributions](https://www.desmos.com/calculator/8qjdx4zkhg)
--   [Continuous distributions](https://www.desmos.com/calculator/5roclvwwtd)
--   [The normal distribution](https://www.desmos.com/calculator/vnuvhbfuc5)
+- [Discrete distributions](https://www.desmos.com/calculator/8qjdx4zkhg)
+
+- [The uniform distribution](https://www.desmos.com/calculator/cwqbsrgjpr)
+
+- [The Central Limit Theorem](https://www.desmos.com/calculator/9z8vqkqk9v)
+
+- [The Normal distribution](https://www.desmos.com/calculator/nnyfn7xq1h)
+
+- [OLS Geometry](https://www.desmos.com/geometry/k2yatxmvnl)

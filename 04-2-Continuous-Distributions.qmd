@@ -240,13 +240,17 @@ pnorm(0.5, mean=0, sd=1)
 
 Compute the following probabilities:
 
-- $P(X < - 2 \sigma | \mu = 0, \sigma = 1)$
-- $P(X > - 2 \sigma | \mu = 0, \sigma = 1)$
-- $P(- 2 \sigma <  X < 2 \sigma | \mu = 0, \sigma = 1)$
- 
-- $P(X < - 2 \sigma | \mu = 0, \sigma = 3)$
-- $P(X > - 2 \sigma | \mu = 0, \sigma = 3)$
-- $P(- 2 \sigma <  X < 2 \sigma | \mu = 0, \sigma = 3)$
+-   $P(X < - 2 \sigma | \mu = 0, \sigma = 1)$
+
+-   $P(X > - 2 \sigma | \mu = 0, \sigma = 1)$
+
+-   $P(- 2 \sigma <  X < 2 \sigma | \mu = 0, \sigma = 1)$
+
+-   $P(X < - 2 \sigma | \mu = 0, \sigma = 3)$
+
+-   $P(X > - 2 \sigma | \mu = 0, \sigma = 3)$
+
+-   $P(- 2 \sigma <  X < 2 \sigma | \mu = 0, \sigma = 3)$
 
 ```{r}
 
