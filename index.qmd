@@ -18,7 +18,7 @@
 
 - [The uniform distribution](https://www.desmos.com/calculator/cwqbsrgjpr)
 
-- [The Central Limit Theorem](https://www.desmos.com/calculator/9z8vqkqk9v)
+- [The Central Limit Theorem](https://colab.research.google.com/github/febse/econ2026/blob/main/03-CLT.ipynb)
 
 - [The Normal distribution](https://www.desmos.com/calculator/nnyfn7xq1h)
 
