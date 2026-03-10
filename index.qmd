@@ -14,12 +14,15 @@
 
 <!-- -->
 
-- [Discrete distributions](https://www.desmos.com/calculator/8qjdx4zkhg)
+-   [Discrete distributions](https://www.desmos.com/calculator/8qjdx4zkhg)
 
-- [The uniform distribution](https://www.desmos.com/calculator/cwqbsrgjpr)
+-   [The uniform distribution](https://www.desmos.com/calculator/cwqbsrgjpr)
 
-- [The Central Limit Theorem](https://colab.research.google.com/github/febse/econ2026/blob/main/03-CLT.ipynb)
+-   [The Central Limit Theorem](https://colab.research.google.com/github/febse/econ2026/blob/main/03-CLT.ipynb)
 
-- [The Normal distribution](https://www.desmos.com/calculator/nnyfn7xq1h)
+-   [The Normal distribution](https://www.desmos.com/calculator/nnyfn7xq1h)
 
-- [OLS Geometry](https://www.desmos.com/geometry/k2yatxmvnl)
+-   [OLS Geometry](https://www.desmos.com/geometry/k2yatxmvnl)
+
+-   [OLS with one predictor](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares.ipynb)
+  
