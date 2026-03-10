@@ -13,7 +13,7 @@ book:
     - index.qmd
     # - Homework.qmd
     - 00-Recommended-Literature.qmd
-    - 03-CLT.ipynb
+    # - 03-CLT.ipynb
     # - 02-Distributions-Class.ipynb
     # - 01-Descriptive-Statistics-Class.ipynb
     # - 01-Introduction-to-R.qmd
