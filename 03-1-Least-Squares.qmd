@@ -16,7 +16,12 @@ if (!require("tidyverse")) {
     install.packages("tidyverse")
 }
 
+if (!require("plotly")) {
+    install.packages("plotly")
+}
+
 library(tidyverse)
+library(plotly)
 
 # Download and read the data
 dt <- read_delim("https://github.com/febse/data/raw/refs/heads/main/econ/invoices.txt")
