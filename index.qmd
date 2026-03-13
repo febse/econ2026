@@ -22,6 +22,8 @@
 
 -   [The Normal distribution](https://www.desmos.com/calculator/nnyfn7xq1h)
 
+- [OLS - intercept only](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares-Intercept.ipynb)
+
 -   [OLS Geometry](https://www.desmos.com/geometry/k2yatxmvnl)
 
 -   [OLS with one predictor](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares.ipynb)
