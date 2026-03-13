@@ -16,7 +16,7 @@ book:
     # - 03-CLT.ipynb
     # - 02-Distributions-Class.ipynb
     # - 01-Descriptive-Statistics-Class.ipynb
-    # - 01-Introduction-to-R.qmd
+    - 01-Introduction-to-R.qmd
     # - 02-Descriptive-Statistics.qmd
     # - 03-1-Least-Squares.qmd
     # - 03-2-Least-Squares.qmd
