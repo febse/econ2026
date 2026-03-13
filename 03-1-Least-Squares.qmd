@@ -12,33 +12,14 @@ Variables description:
 
 # Load the tidyverse packages
 
-if (!require("skimr")) {
-    install.packages("skimr")
-}
-
 if (!require("tidyverse")) {
     install.packages("tidyverse")
 }
 
-if (!require("ggforce")) {
-  install.packages("ggforce")
-}
-
-if (!require("latex2exp")) {
-    install.packages("latex2exp")
-}
-
-if (!require("plotly")) {
-    install.packages("plotly")
-}
-
 library(tidyverse)
-library(latex2exp)
-library(ggforce)
-library(plotly)
 
 # Download and read the data
-dt <- read.delim("https://github.com/febse/data/raw/refs/heads/main/econ/invoices.txt")
+dt <- read_delim("https://github.com/febse/data/raw/refs/heads/main/econ/invoices.txt")
 ```
 
 Get an overview of the data set.
@@ -54,6 +35,7 @@ More precisely, our task is to predict the time needed to process 50, 120, 201, 
 #| label: fig-invoices-time
 #| fig-cap: "Time needed to process the invoices"
 #| code-fold: true
+
 dt %>%
   ggplot(aes(x = Invoices, y = Time)) +
     geom_point() +
@@ -101,7 +83,11 @@ Compute the predicted time $\widehat{Time}_i^{(2)}$ for the second strategy and 
 ```{r}
 # Hint: use the mutate function
 
-
+dt <- dt %>%
+    mutate(
+        Time_predicted_2 = 0.6 + 0.01 * Invoices,
+        residuals_2 = Time - Time_predicted_2
+    )
 ```
 :::
 
@@ -373,7 +359,7 @@ fig <- plot_ly(
   z = matrix(rss_two_coeffs$RSS, nrow = length(beta_hat_0), ncol = length(beta_hat_1)),
   ) %>% 
     add_surface() %>% 
-    layout(
+    plotly::layout(
         scene = list(
           xaxis = list(title = "beta_hat_0"),
           yaxis = list(title = "beta_hat_1"),
@@ -490,7 +476,8 @@ $$
 $$
 :::
 
-::: {#def-covariance}
+<div>
+
 ## Covariance
 
 The covariance between two variables $x$ and $y$ with $n$ values is defined as
@@ -506,7 +493,8 @@ S_{xy} = \frac{n}{(n - 1)}(\overline{x y} - \overline{x} \overline{y})
 $$
 
 The proof is similar to the proof for the variance decomposition.
-:::
+
+</div>
 
 ::: {.callout-note .proof collapse="true"}
 For the proof we just write out the product in the sum and rearrange the terms.
