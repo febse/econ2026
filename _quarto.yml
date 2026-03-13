@@ -23,7 +23,7 @@ book:
     # - 04-1-Discrete-Distributions.qmd
     # - 04-2-Continuous-Distributions.qmd
     # - 03-Least-Squares-Intercept.ipynb
-    - 03-1-Least-Squares.qmd
+    # - 03-1-Least-Squares.qmd
     # - 03-2-Least-Squares.qmd
     # - 05-One-Way-ANOVA.qmd
     # - 06-Simulation.qmd
