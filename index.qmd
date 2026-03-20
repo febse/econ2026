@@ -28,7 +28,7 @@
 
 -   [OLS Geometry](https://www.desmos.com/geometry/k2yatxmvnl)
 
-- [OSL Class](https://colab.research.google.com/github/febse/econ2026/blob/main/03-01-Least-Squares-Class.ipynb)
+- [OSL Class](https://colab.research.google.com/github/febse/econ2026/blob/main/03-1-Least-Squares-Class.ipynb)
 
 
 -   [OLS with one predictor](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares.ipynb)
