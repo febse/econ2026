@@ -22,10 +22,13 @@
 
 -   [The Normal distribution](https://www.desmos.com/calculator/nnyfn7xq1h)
 
-- [OLS - intercept only](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares-Intercept.ipynb)
+-   [OLS - intercept only](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares-Intercept.ipynb)
 
-- [OLS - simple](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares-Simple.ipynb)
+-   [OLS - simple](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares-Simple.ipynb)
 
 -   [OLS Geometry](https://www.desmos.com/geometry/k2yatxmvnl)
+
+- [OSL Class](https://colab.research.google.com/github/febse/econ2026/blob/main/03-01-Least-Squares-Class.ipynb)
+
 
 -   [OLS with one predictor](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares.ipynb)
