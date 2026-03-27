@@ -3,7 +3,7 @@ project:
   output-dir: _site
 
 execute: 
-  enabled: true
+  enabled: false
 
 book:
   title: "Introduction to Linear Regression Analysis"
@@ -16,13 +16,12 @@ book:
     # - 03-CLT.ipynb
     # - 02-Distributions-Class.ipynb
     # - 01-Descriptive-Statistics-Class.ipynb
-    # - 01-Introduction-to-R.qmd
-    # - 02-Descriptive-Statistics.qmd
-    # - 03-1-Least-Squares.qmd
+    - 01-Introduction-to-R.qmd
+    - 02-Descriptive-Statistics.qmd
     # - 03-2-Least-Squares.qmd
     # - 04-1-Discrete-Distributions.qmd
     # - 04-2-Continuous-Distributions.qmd
-    # - 03-Least-Squares-Intercept.ipynb
+    - 03-1-Least-Squares.ipynb
     # - 03-1-Least-Squares.qmd
     # - 03-2-Least-Squares.qmd
     # - 05-One-Way-ANOVA.qmd
