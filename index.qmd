@@ -26,10 +26,10 @@
 
 -   [OLS Geometry](https://www.desmos.com/geometry/k2yatxmvnl)
 
-- [OLS Class](https://colab.research.google.com/github/febse/econ2026/blob/main/03-1-Least-Squares-Class.ipynb)
+-   [OLS Class](https://colab.research.google.com/github/febse/econ2026/blob/main/03-1-Least-Squares-Class.ipynb)
 
-- [Multiple Regression](https://colab.research.google.com/github/febse/econ2026/blob/main/08-Multiple-Regression-Class.ipynb)
+-   [Multiple Regression](https://colab.research.google.com/github/febse/econ2026/blob/main/08-Multiple-Regression-Class.ipynb)
 
 -   [OLS with one predictor](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares.ipynb)
 
-- [t-test and p-values](https://colab.research.google.com/github/febse/econ2026/blob/main/09-Simulation-Ex.ipynb)
+-   [t-test and p-values](https://colab.research.google.com/github/febse/econ2026/blob/main/09-Simulation-Ex.ipynb)
