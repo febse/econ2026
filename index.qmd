@@ -30,7 +30,7 @@
 
 - [Multiple Regression](https://colab.research.google.com/github/febse/econ2026/blob/main/08-Multiple-Regression-Class.ipynb)
 
-- `Multiple Regression (1)`
+- [Multiple Regression (1)](https://colab.research.google.com/github/febse/econ2026/blob/main/08-Multiple-Regression-Data-Generation.ipynb)
 
 - [OLS with one predictor](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares.ipynb)
 
