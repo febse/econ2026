@@ -60,3 +60,4 @@ lit/
 *.zip
 
 **/*.quarto_ipynb
+media/
