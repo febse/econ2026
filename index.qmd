@@ -34,7 +34,7 @@
 
 - [OLS with one predictor](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares.ipynb)
 
-- [t-test and p-values](https://colab.research.google.com/github/febse/econ2026/blob/main/06-Simulation-Ex.ipynb)
+- [t-test and p-values](https://colab.research.google.com/github/febse/econ2026/blob/main/06-Simulation-Class.ipynb)
 
 ## Time Series Notebooks
 
