@@ -29,7 +29,6 @@ kids <- read_csv(
   select(kid_score, mom_hs)
 ```
 
-
 ```{r}
 set.seed(123)
 
@@ -145,7 +144,6 @@ x[0:20]
 
 ## Distribution of the OLS estimates
 
-
 ```{r}
 #| label: fig-sim-distr-slopes
 #| fig-cap: "Sampling distribution of $\\hat{\\beta}_1$. Each dot represents the slope estimate in one sample."
@@ -216,7 +214,6 @@ $$
 $$
 
 What is its expected value?
-
 
 4.  The variance of $\hat{\beta}_1$ (in this special case) is:
 
