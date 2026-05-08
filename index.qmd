@@ -36,7 +36,7 @@
 
 - [Distribution of the OLS estimates](https://colab.research.google.com/github/febse/econ2026/blob/main/06-Simulation-Class.ipynb)
 
-- [Hypothesis Tests](https://colab.research.google.com/github/febse/econ2026/blob/main/07-Simulation-Tests.ipynb)
+- [Hypothesis Tests](https://colab.research.google.com/github/febse/econ2026/blob/main/06-Simulation-Tests.ipynb)
 
 ## Time Series Notebooks
 
