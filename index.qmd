@@ -34,7 +34,7 @@
 
 - [OLS with one predictor](https://colab.research.google.com/github/febse/econ2026/blob/main/03-Least-Squares.ipynb)
 
-- [t-test and p-values (1)](https://colab.research.google.com/github/febse/econ2026/blob/main/06-Simulation-Class.ipynb)
+- [Distribution of the OLS estimates](https://colab.research.google.com/github/febse/econ2026/blob/main/06-Simulation-Class.ipynb)
 
 - [Hypothesis Tests (1)](https://colab.research.google.com/github/febse/econ2026/blob/main/07-Simulation-Tests.ipynb)
 
