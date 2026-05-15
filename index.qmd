@@ -45,3 +45,5 @@
 
 - [Introduction](https://colab.research.google.com/github/febse/econ2026/blob/main/01-Time-Series-Intro.ipynb)
 - [Unit-Root tests](https://colab.research.google.com/github/febse/econ2026/blob/main/02-Time-Series-UR.ipynb)
+- [ARMA model selection](https://colab.research.google.com/github/febse/econ2026/blob/main/02-Time-Series-Arima.ipynb)
+  
