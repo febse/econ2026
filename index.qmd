@@ -38,7 +38,7 @@
 
 - [Hypothesis Tests](https://colab.research.google.com/github/febse/econ2026/blob/main/06-Simulation-Tests.ipynb)
 
-- [Categorical variables](https://colab.research.google.com/github/febse/econ2026/blob/main/09-Categorical-Variables.ipynb)
+- [Interaction Terms](https://colab.research.google.com/github/febse/econ2026/blob/main/10-Interaction.ipynb)
   
 
 ## Time Series Notebooks
@@ -46,4 +46,4 @@
 - [Introduction](https://colab.research.google.com/github/febse/econ2026/blob/main/01-Time-Series-Intro.ipynb)
 - [Unit-Root tests](https://colab.research.google.com/github/febse/econ2026/blob/main/02-Time-Series-UR.ipynb)
 - [ARMA model selection](https://colab.research.google.com/github/febse/econ2026/blob/main/02-Time-Series-Arima.ipynb)
-  
+- [GARCH](https://colab.research.google.com/github/febse/econ2026/blob/main/01-Time-Series-GARCH.ipynb)
