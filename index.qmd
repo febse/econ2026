@@ -39,7 +39,7 @@
 - [Hypothesis Tests](https://colab.research.google.com/github/febse/econ2026/blob/main/06-Simulation-Tests.ipynb)
 
 - [Interaction Terms](https://colab.research.google.com/github/febse/econ2026/blob/main/10-Interaction.ipynb)
-  
+
 
 ## Time Series Notebooks
 
